@@ -4,6 +4,11 @@ This project is a bug fixing/feature addition challenge for Code Nation students
 
 Students will need to fork this repo and clone it to their machine.
 
+
+Here's the starting state.
+
+You can post a title and an image to the screen
+
 ![starting state](/posts1.png)
 
 ![starting state](/posts2.png)
