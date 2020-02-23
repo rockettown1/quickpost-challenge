@@ -6,8 +6,18 @@ class App extends Component {
     currentTitle: "",
     currentURL: "",
     posts: [],
-    showPostForm: true
+    showPostForm: true,
+    user: null
   };
+
+  async componentDidMount() {
+    //fetching some dummy data for user profile
+    const response = await fetch("https://randomuser.me/api/");
+    //throw the above url into the browser if you want to see what json data you get back.
+    const data = await response.json();
+
+    this.setState({ user: data.results[0] });
+  }
 
   titleChangeHandler = event => {
     this.setState({ currentTitle: event.target.value });
@@ -53,6 +63,14 @@ class App extends Component {
         </div>
 
         <div className="collection">
+          {this.state.user && (
+            <div className="profile-info">
+              <div className="avatar-container">
+                <img src={this.state.user.picture.medium} />
+              </div>
+              <h3>{this.state.user.name.first}</h3>
+            </div>
+          )}
           <button className="addPost" onClick={this.showFormHandler}>
             Add a post
           </button>
